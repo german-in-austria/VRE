@@ -12,5 +12,5 @@ gulp.task('default', function () {
   gulp.watch('app.js', electron.restart);
 
   // Reload renderer process
-  gulp.watch(['index.js', 'index.html'], electron.reload);
+  gulp.watch(['renderer.js', 'index.html', 'css/*.styl', 'src/*.*'], electron.reload);
 });
