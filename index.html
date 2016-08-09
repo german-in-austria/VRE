@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <script>require('electron-connect').client.create()</script>
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -10,6 +11,8 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <webview id="foo" src="http://mm.dioe.at" style="display:inline-flex; width:640px; height:480px"></webview>
+    <webview id="foo" src="http://dioe.at/redmine" style="display:inline-flex; width:640px; height:480px"></webview>
   </body>
 
   <script>
