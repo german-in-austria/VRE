@@ -19,7 +19,7 @@ function createWindow () {
     minWidth : 600,
     minHeight : 400,
     acceptFirstMouse : true,
-    titleBarStyle : 'hidden',
+    titleBarStyle : 'hidden-inset',
     minimumFontSize : 6
   })
 
@@ -27,7 +27,7 @@ function createWindow () {
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

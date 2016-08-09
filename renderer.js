@@ -22,13 +22,13 @@ var app_modules = [
     name : 'Diskussion',
     selector : '.mattermost',
     css : '/css/mattermost.styl',
-    debug : false
+    // debug : true
   },
   {
     name : 'Aufgaben',
     selector : '.redmine',
     css : '/css/redmine.styl',
-    debug : true
+    // debug : true
   }
 ]
 

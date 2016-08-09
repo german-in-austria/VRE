@@ -1,5 +1,5 @@
 
-primary-color #0062A6
+@import "variables"
 
 body
   padding 0
@@ -11,10 +11,13 @@ body
   -webkit-app-region no-drag
 
 .sidebar
-  padding 3em 1em
-  flex-grow 1
+  min-width 200px
+  background #f2f4f8
+  padding 4em 1em
+  flex-grow 5
   -webkit-app-region drag
   a
+    line-height 1.7em
     color #555
     -webkit-app-region no-drag
   ul
