@@ -25,7 +25,7 @@ primary-color = #0062A6
     border-radius 6px
 
 .app__body .sidebar--left a.add-channel-btn
-  color #ccc !important
+  opacity .5
 
 .app__body .sidebar--left .team__header .navbar-right .dropdown__icon
   fill #333 !important
@@ -95,8 +95,25 @@ primary-color = #0062A6
 .post-create__container .post-create-body .custom-textarea
   border-radius 5px !important
 
+.app__body .btn.btn-primary
+  background primary-color !important
 
+// modals
+.app__body .modal .modal-dialog .modal-content
+  border-radius 5px !important
+  background white !important
+.app__body .modal .modal-header
+  background transparent !important
+  color #333 !important
+  border: 0 !important
+  border-bottom: 1px solid #ccc !important
+.app__body .modal .modal-header button.close
+  color #555
+  font-weight 300
+  font-size 30px
 
+.app__body .modal .modal-header .modal-title
+  color #333 !important
 // mobile
 
 #navbar .navbar-default
