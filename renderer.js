@@ -30,6 +30,12 @@ var app_modules = [
     css : '/css/redmine.styl',
     // debug : true
   }
+  {
+    name : 'Kalender',
+    selector : '.calendar',
+    //css : '/css/redmine.styl',
+    // debug : true
+  }
 ]
 
 app_modules.map(app_module => {
