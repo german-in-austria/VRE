@@ -1,7 +1,7 @@
 {
-  "name": "electron-quick-start",
+  "name": "DIÖ Desktop Client",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A desktop client that contains the most important tools used in the research project DIÖ",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
