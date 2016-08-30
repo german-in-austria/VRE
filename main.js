@@ -14,13 +14,19 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 768,
     minWidth : 600,
     minHeight : 400,
     acceptFirstMouse : true,
     titleBarStyle : 'hidden-inset',
-    minimumFontSize : 6
+    minimumFontSize : 6,
+	"web-preferences": {
+		defaultFontFamily: "Lato",
+		defaultFontSitze: 14,
+		//added to run dioecloud in a webview
+		allowDisplayInsecureContent: true
+	}
   })
 
   // and load the index.html of the app.

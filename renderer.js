@@ -29,7 +29,7 @@ var app_modules = [
     selector : '.redmine',
     css : '/css/redmine.styl',
     // debug : true
-  }
+  },
   {
     name : 'Kalender',
     selector : '.calendar',
