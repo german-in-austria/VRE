@@ -24,10 +24,14 @@
           <li>
             <a onclick="document.querySelector('.redmine').classList.toggle('active')" href="#">Aufgaben</a>
           </li>
+          <li>
+            <a onclick="document.querySelector('.owncloud').classList.toggle('active')" href="#">Dateien</a>
+          </li>
         </ul>
       </div>
       <webview class="mattermost active" src="http://mm.dioe.at" style="display:inline-flex;"></webview>
-      <webview class="redmine" id="foo" src="http://dioe.at/redmine" style="display:inline-flex;"></webview>
+      <webview class="redmine" src="http://dioe.at/redmine" style="display:inline-flex;"></webview>
+      <webview class="owncloud" src="http://owncloud.dioe.at" style="display:inline-flex;" allowDisplayingInsecureContent="true" disablewebsecurity="true"></webview>
     </div>
   </body>
 

@@ -29,21 +29,28 @@ var app_modules = [
     selector : '.redmine',
     css : '/css/redmine.styl',
     // debug : true
+  },
+  {
+    name : 'Dateien',
+    selector : '.owncloud',
+    css : undefined
   }
 ]
 
 app_modules.map(app_module => {
   var el = document.querySelector(app_module.selector)
   el.addEventListener('dom-ready', () => {
-    compileCSS(app_module.css)
-    .then((css) => {
-      if (app_module.debug) {
-        el.openDevTools()
-      }
-      return el.insertCSS(css)
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+    if (app_module.css != undefined) {
+      compileCSS(app_module.css)
+      .then((css) => {
+        if (app_module.debug) {
+          el.openDevTools()
+        }
+        return el.insertCSS(css)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
   })
 })

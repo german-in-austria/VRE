@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow
 
 const client = require('electron-connect').client;
 
+app.commandLine.appendSwitch('ignore-certificate-errors', true);
+app.commandLine.appendSwitch('allow-insecure-localhost');
+app.commandLine.appendSwitch('unsafely-treat-insecure-origin-as-secure');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
