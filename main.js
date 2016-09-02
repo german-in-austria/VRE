@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow
 
 const client = require('electron-connect').client;
 
+app.commandLine.appendSwitch('ignore-certificate-errors', true);
+app.commandLine.appendSwitch('allow-insecure-localhost');
+app.commandLine.appendSwitch('unsafely-treat-insecure-origin-as-secure');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -13,13 +16,21 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    minWidth : 600,
+    minHeight : 400,
+    acceptFirstMouse : true,
+    titleBarStyle : 'hidden-inset',
+    minimumFontSize : 6
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
