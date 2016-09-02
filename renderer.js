@@ -31,9 +31,10 @@ var app_modules = [
     // debug : true
   },
   {
-    name : 'Dateien',
-    selector : '.owncloud',
-    css : undefined
+    name : 'Kalender',
+    selector : '.calendar',
+    //css : '/css/redmine.styl',
+    // debug : true
   }
 ]
 
