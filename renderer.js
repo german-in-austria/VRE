@@ -50,15 +50,18 @@ var app_modules = [
     // debug : true
   }
 ]
+
 dioe = {
   openView : (el) => {
     var view_name = el.href.split('#')[1]
+    localStorage.setItem('active_page', view_name)
     document.querySelector('.sidebar a.active').classList.remove('active')
     el.classList.add('active')
     document.querySelector('webview.active').classList.remove('active')
     document.querySelector('#'+view_name).classList.add('active')
   }
 }
+
 app_modules.map(app_module => {
   var el = document.querySelector(app_module.selector)
   el.addEventListener('dom-ready', () => {

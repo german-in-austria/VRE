@@ -25,10 +25,12 @@ body
     color #555
     -webkit-app-region no-drag
     opacity .7
+    -webkit-filter invert()
     &:hover
     &:focus
       text-decoration none
     &.active
+      -webkit-filter none
       opacity 1
       background #55739a
     &.active:after
