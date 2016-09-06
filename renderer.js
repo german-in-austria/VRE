@@ -3,6 +3,10 @@
 // All of the Node.js APIs are available in this process.
 var stylus = require('stylus')
 var fs = require('fs')
+var $ = require('jquery')
+var url = require('url')
+var shell = require('electron').shell
+
 var compileCSS = (path) => {
   var file = fs.readFileSync(__dirname+path, 'utf8')
   return new Promise((resolve, reject) => {
@@ -15,6 +19,8 @@ var compileCSS = (path) => {
     })
   })
 }
+
+//open links externally by default
 
 
 var app_modules = [
@@ -43,10 +49,19 @@ var app_modules = [
     // debug : true
   }
 ]
-
+dioe = {
+  openView : (selector) => {
+    document.querySelector('webview.active').classList.remove('active')
+    document.querySelector(selector).classList.add('active')
+  }
+}
 app_modules.map(app_module => {
   var el = document.querySelector(app_module.selector)
   el.addEventListener('dom-ready', () => {
+    el.addEventListener('new-window', (e) => {
+      var link_url = url.parse(e.url)
+      shell.openExternal(e.url)
+    })
     if (app_module.css != undefined) {
       compileCSS(app_module.css)
       .then((css) => {
