@@ -28,12 +28,13 @@ var app_modules = [
     name : 'Diskussion',
     selector : '.mattermost',
     css : '/css/mattermost.styl',
-    debug : true
+    // debug : true
   },
   {
     name : 'DIÖ-Cloud',
     selector : '.cloud',
-    //css : '/css/mattermost.styl',
+    css : '/css/owncloud.styl',
+    js : '/js-injection/owncloud.js',
     // debug : true
   },
   {
@@ -65,6 +66,12 @@ app_modules.map(app_module => {
       var link_url = url.parse(e.url)
       shell.openExternal(e.url)
     })
+    if (app_module.js != undefined) {
+      var js = fs.readFileSync(__dirname+app_module.js, 'utf-8')
+      el.executeJavaScript(js, () => {
+        console.log('executed js')
+      })
+    }
     if (app_module.css != undefined) {
       compileCSS(app_module.css)
       .then((css) => {
