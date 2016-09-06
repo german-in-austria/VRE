@@ -40,7 +40,7 @@ var app_modules = [
     name : 'Aufgaben',
     selector : '.redmine',
     css : '/css/redmine.styl',
-    // debug : true
+    debug : true
   },
   {
     name : 'Kalender',
