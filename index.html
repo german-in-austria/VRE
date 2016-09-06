@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>DIÖ Desktop Client</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <script>
       require('electron-connect').client.create()
@@ -19,16 +20,16 @@
       <div class="sidebar">
         <ul>
           <li>
-            <a onclick="dioe.openView('#mattermost')" href="#">Diskussion</a>
+            <a class="active" onclick="dioe.openView(this)" href="#mattermost">Diskussion</a>
           </li>
           <li>
-            <a onclick="dioe.openView('#cloud')" href="#">DIÖ-Cloud</a>
+            <a onclick="dioe.openView(this)" href="#cloud">DIÖ-Cloud</a>
           </li>
 		  <li>
-            <a onclick="dioe.openView('#redmine')" href="#">Aufgaben</a>
+            <a onclick="dioe.openView(this)" href="#redmine">Aufgaben</a>
           </li>
 		  <li>
-            <a onclick="dioe.openView('#calendar').classList.toggle('active')" href="#">Kalender</a>
+            <a onclick="dioe.openView(this)" href="#calendar">Kalender</a>
           </li>
         </ul>
       </div>
