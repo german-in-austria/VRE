@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>DIÖ Desktop Client</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <script>
       require('electron-connect').client.create()
@@ -19,19 +20,31 @@
       <div class="sidebar">
         <ul>
           <li>
-            <a onclick="document.querySelector('.mattermost').classList.toggle('active')" href="#">Diskussion</a>
+            <a class="active" onclick="dioe.openView(this)" href="#mattermost">
+              <img src="img/bubbles.svg" />
+            </a>
           </li>
           <li>
-            <a onclick="document.querySelector('.redmine').classList.toggle('active')" href="#">Aufgaben</a>
+            <a onclick="dioe.openView(this)" href="#cloud">
+              <img src="img/folder.svg" />
+            </a>
           </li>
-		  <li>
-            <a onclick="document.querySelector('.calendar').classList.toggle('active')" href="#">Kalender</a>
+		      <li>
+            <a onclick="dioe.openView(this)" href="#redmine">
+              <img src="img/tasks.svg" />
+            </a>
+          </li>
+		      <li>
+            <a onclick="dioe.openView(this)" href="#calendar">
+              <img src="img/calendar.svg" />
+            </a>
           </li>
         </ul>
       </div>
-      <webview class="mattermost active" src="http://mm.dioe.at" style="display:inline-flex;" nodeintegration></webview>
-      <webview class="redmine" id="foo" src="http://dioe.at/redmine" style="display:inline-flex;" nodeintegration></webview>
-	  <webview class="calendar" id="calendar" src="https://calendar.google.com/calendar/embed?src=01jij9p9cq9co2vkg4268o70e8%40group.calendar.google.com&ctz=Europe/Vienna" style="display:inline-flex;" nodeintegration></webview>
+      <webview class="mattermost active" id="mattermost" src="http://mm.dioe.at"></webview>
+      <webview class="redmine" id="redmine" src="http://dioe.at/redmine"></webview>
+	    <webview class="cloud" id="cloud" src="https://dioecloud.trans.univie.ac.at"></webview>
+	    <webview class="calendar" id="calendar" src="https://calendar.google.com/calendar/embed?src=01jij9p9cq9co2vkg4268o70e8%40group.calendar.google.com&ctz=Europe/Vienna"></webview>
     </div>
   </body>
 

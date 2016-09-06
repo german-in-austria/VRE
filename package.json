@@ -1,5 +1,5 @@
 {
-  "name": "DIÖ Desktop Client",
+  "name": "dioe-desktop-client",
   "version": "1.0.0",
   "description": "A desktop client that contains the most important tools used in the research project DIÖ",
   "main": "main.js",
@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.0"
+    "electron-prebuilt": "^1.2.0",
+    "gulp": "^3.9.1",
+    "jquery": "^3.1.0"
   },
   "dependencies": {
     "coffee-script": "^1.10.0",

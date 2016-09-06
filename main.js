@@ -22,7 +22,7 @@ function createWindow () {
     minWidth : 600,
     minHeight : 400,
     acceptFirstMouse : true,
-    titleBarStyle : 'hidden-inset',
+    // titleBarStyle : 'hidden-inset',
     minimumFontSize : 6,
 	"web-preferences": {
 		defaultFontFamily: "Lato",
@@ -51,6 +51,9 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+//added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
+app.commandLine.appendSwitch("ignore-certificate-errors");
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
