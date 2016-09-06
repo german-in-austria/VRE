@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>DIÖ Desktop Client</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <script>
       require('electron-connect').client.create()
@@ -22,22 +22,27 @@
             <a onclick="document.querySelector('.mattermost').classList.toggle('active')" href="#">Diskussion</a>
           </li>
           <li>
+            <a onclick="document.querySelector('.cloud').classList.toggle('active')" href="#">DIÖ-Cloud</a>
+          </li>
+		  <li>
             <a onclick="document.querySelector('.redmine').classList.toggle('active')" href="#">Aufgaben</a>
           </li>
-          <li>
-            <a onclick="document.querySelector('.owncloud').classList.toggle('active')" href="#">Dateien</a>
+		  <li>
+            <a onclick="document.querySelector('.calendar').classList.toggle('active')" href="#">Kalender</a>
           </li>
         </ul>
       </div>
-      <webview class="mattermost active" src="http://mm.dioe.at" style="display:inline-flex;"></webview>
-      <webview class="redmine" src="http://dioe.at/redmine" style="display:inline-flex;"></webview>
-      <webview class="owncloud" src="http://owncloud.dioe.at" style="display:inline-flex;" allowDisplayingInsecureContent="true" disablewebsecurity="true"></webview>
+      <webview class="mattermost active" src="http://mm.dioe.at" style="display:inline-flex;" nodeintegration></webview>
+      <webview class="redmine" id="redmine" src="http://dioe.at/redmine" style="display:inline-flex;" nodeintegration></webview>
+	  <webview class="cloud" id="cloud" src="https://dioecloud.trans.univie.ac.at" style="display:inline-flex;" nodeintegration></webview>
+	  <webview class="calendar" id="calendar" src="https://calendar.google.com/calendar/embed?src=01jij9p9cq9co2vkg4268o70e8%40group.calendar.google.com&ctz=Europe/Vienna" style="display:inline-flex;" nodeintegration></webview>
     </div>
   </body>
 
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
-
+	//needed to run the app under windows
+	//var load = require('isexe').load(pattern, config);
   </script>
 </html>

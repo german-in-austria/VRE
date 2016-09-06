@@ -17,13 +17,19 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 768,
     minWidth : 600,
     minHeight : 400,
     acceptFirstMouse : true,
     titleBarStyle : 'hidden-inset',
-    minimumFontSize : 6
+    minimumFontSize : 6,
+	"web-preferences": {
+		defaultFontFamily: "Lato",
+		defaultFontSitze: 14,
+		//added to run dioecloud in a webview
+		allowDisplayInsecureContent: true
+	}
   })
 
   // and load the index.html of the app.
@@ -45,6 +51,9 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
+
+//added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
+app.commandLine.appendSwitch("ignore-certificate-errors");
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
