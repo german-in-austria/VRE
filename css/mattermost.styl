@@ -1,4 +1,9 @@
 primary-color = #0062A6
+@import 'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext'
+
+// TODO REMOVE
+.error-bar
+  display none !important
 
 .app__body .post.current--user .post__body
 .app__body .post.post--comment.other--root.current--user .post-comment
@@ -126,6 +131,19 @@ primary-color = #0062A6
 #navbar .navbar-default .navbar-brand .dropdown-toggle
   color #333 !important
 
+.dropdown-menu
+  background #333 !important
+  color #ccc !important
+  border-radius 0 !important
+
+.popover
+  background #333 !important
+  color #ccc !important
+  .arrow
+    border-bottom-color #333 !important
+    &:after
+      border-bottom-color #333 !important
+
 .app__body #navbar .navbar-default .navbar-brand .heading
   color #333 !important
 
@@ -138,3 +156,7 @@ primary-color = #0062A6
 #navbar .navbar-default .navbar-brand .description.info-popover
   -webkit-filter invert()
   opacity .7
+
+body
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6
+  font-family 'Lato', sans-serif !important

@@ -13,16 +13,21 @@ body
 .sidebar
   min-width 200px
   background #f2f4f8
-  padding 4em 1em
+  padding 4em 0
   flex-grow 5
   -webkit-app-region drag
   a
     display block
     line-height 2em
+    padding 0 2em
     color #555
     -webkit-app-region no-drag
     &:hover
+    &:focus
       text-decoration none
+    &.active
+      background #333
+      color white
   ul
     padding 0
     list-style-type none
@@ -32,7 +37,7 @@ webview
   height 0
   opacity 0
   pointer-events none
-  transition opacity .5s
+  // transition opacity .1s
 
 webview.active
   flex-grow 5

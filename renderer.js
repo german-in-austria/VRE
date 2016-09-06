@@ -28,7 +28,7 @@ var app_modules = [
     name : 'Diskussion',
     selector : '.mattermost',
     css : '/css/mattermost.styl',
-    // debug : true
+    debug : true
   },
   {
     name : 'DIÖ-Cloud',
@@ -50,9 +50,12 @@ var app_modules = [
   }
 ]
 dioe = {
-  openView : (selector) => {
+  openView : (el) => {
+    var view_name = el.href.split('#')[1]
+    document.querySelector('.sidebar a.active').classList.remove('active')
+    el.classList.add('active')
     document.querySelector('webview.active').classList.remove('active')
-    document.querySelector(selector).classList.add('active')
+    document.querySelector('#'+view_name).classList.add('active')
   }
 }
 app_modules.map(app_module => {
