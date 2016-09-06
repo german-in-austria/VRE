@@ -11,27 +11,42 @@ body
   -webkit-app-region no-drag
 
 .sidebar
-  min-width 200px
-  background #f2f4f8
-  padding 4em 0
-  flex-grow 5
+  width 100px
+  background #55739a
+  padding 2em 0
   -webkit-app-region drag
+  li
+    position relative
   a
     cursor default
     display block
     line-height 2em
-    padding 0 2em
+    padding 1em
     color #555
     -webkit-app-region no-drag
+    opacity .7
     &:hover
     &:focus
       text-decoration none
     &.active
+      opacity 1
       background #55739a
-      color white
+    &.active:after
+      content " "
+      position absolute
+      width 0
+      height 0
+      border-top 10px solid transparent
+      border-bottom 10px solid transparent
+      border-right 10px solid white
+      right 0
+      top 20px
+    img
+      width 35px
   ul
     padding 0
     list-style-type none
+    text-align center
 
 webview
   width 0
