@@ -49,6 +49,9 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
+//added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
+app.commandLine.appendSwitch("ignore-certificate-errors");
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar

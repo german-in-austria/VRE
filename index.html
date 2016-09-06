@@ -22,6 +22,9 @@
             <a onclick="document.querySelector('.mattermost').classList.toggle('active')" href="#">Diskussion</a>
           </li>
           <li>
+            <a onclick="document.querySelector('.cloud').classList.toggle('active')" href="#">DIÖ-Cloud</a>
+          </li>
+		  <li>
             <a onclick="document.querySelector('.redmine').classList.toggle('active')" href="#">Aufgaben</a>
           </li>
 		  <li>
@@ -30,7 +33,8 @@
         </ul>
       </div>
       <webview class="mattermost active" src="http://mm.dioe.at" style="display:inline-flex;" nodeintegration></webview>
-      <webview class="redmine" id="foo" src="http://dioe.at/redmine" style="display:inline-flex;" nodeintegration></webview>
+      <webview class="redmine" id="redmine" src="http://dioe.at/redmine" style="display:inline-flex;" nodeintegration></webview>
+	  <webview class="cloud" id="cloud" src="https://dioecloud.trans.univie.ac.at" style="display:inline-flex;" nodeintegration></webview>
 	  <webview class="calendar" id="calendar" src="https://calendar.google.com/calendar/embed?src=01jij9p9cq9co2vkg4268o70e8%40group.calendar.google.com&ctz=Europe/Vienna" style="display:inline-flex;" nodeintegration></webview>
     </div>
   </body>

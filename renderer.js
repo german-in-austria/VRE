@@ -25,6 +25,12 @@ var app_modules = [
     // debug : true
   },
   {
+    name : 'DIÖ-Cloud',
+    selector : '.cloud',
+    //css : '/css/mattermost.styl',
+    // debug : true
+  },
+  {
     name : 'Aufgaben',
     selector : '.redmine',
     css : '/css/redmine.styl',
