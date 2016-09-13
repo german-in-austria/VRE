@@ -1,3 +1,0 @@
-//NOTE: --asar=true is important, otherwise an installer using npm package electron-installer-windows can't be built (error because of too long path names)
-
-electron-packager . --platform=win32 --arch=x64 --icon=app-icon.ico --asar=true
