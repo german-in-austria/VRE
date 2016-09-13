@@ -1,6 +1,6 @@
 {
   "osx" : {
-    "title": "DIÖ Desktop Client",
+    "title": "foobar",
     "background": "assets/osx/background.png",
     "icon": "assets/app-icon.ico",
     "icon-size": 128,
@@ -10,7 +10,7 @@
     ]
   },
   "win" : {
-    "title" : "DIÖ Desktop Client",
+    "title" : "foobar",
     "icon" : "assets/app-icon.ico"
   }
 }
