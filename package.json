@@ -1,12 +1,12 @@
 {
-  "name": "dioe_desktop_client",
+  "name": "dioe_app",
   "version": "0.0.1",
   "description": "A desktop client that contains the most important tools used in the research project DIÖ",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-	"build": "electron-packager . app --platform win32 --arch x64 --out ../build --asar=true --overwrite=true",
-    "setup": "electron-installer-windows --src ../build/app-win32-x64/ --dest ../installers"
+	"build": "electron-packager . dioe_app --platform win32 --arch x64 --icon=app-icon.ico --out ../build --asar=true --overwrite=true",
+    "setup": "electron-installer-windows --src ../build/dioe_app-win32-x64/ --dest ../installers"
   },
   "devDependencies": {
     "electron-installer-windows": "*",
