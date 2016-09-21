@@ -46,7 +46,7 @@ var app_modules = [
   {
     name : 'Kalender',
     selector : '.calendar',
-    //css : '/css/redmine.styl',
+    css : '/css/calendar.styl',
     // debug : true
   }
 ]
