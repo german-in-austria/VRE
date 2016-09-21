@@ -1,14 +1,22 @@
 {
-  "name": "dioe-desktop-client",
-  "version": "1.0.0",
-  "description": "A desktop client that contains the most important tools used in the research project DIÖ",
+  "name": "dioe_app",
+  "version": "0.0.1",
+  "description": "A desktop client that contains the most important tools used in for research project DIÖ",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-mac": "electron-packager . dioe_app --platform darwin --arch x64 --icon=app-icon.icns --out ../build-mac --asar=true --overwrite=true",
+    "build": "electron-packager . dioe_app --platform win32 --arch x64 --icon=app-icon.ico --out ../build --asar=true --overwrite=true",
+    "setup": "electron-installer-windows --src ../build/dioe_app-win32-x64/ --dest ../installers"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0",
+    "gulp": "^3.9.1",
+    "jquery": "^3.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/german-in-austria/VRE.git"
   },
   "keywords": [
     "Electron",
@@ -19,18 +27,15 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
+    "url": "https://github.com/german-in-austria/VRE/issues"
   },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
-  "devDependencies": {
-    "electron-prebuilt": "^1.2.0",
-    "gulp": "^3.9.1",
-    "jquery": "^3.1.0"
-  },
+  "homepage": "https://github.com/german-in-austria/VRE#readme",
   "dependencies": {
     "coffee-script": "^1.10.0",
     "electron-connect": "^0.4.2",
     "electron-drag": "^1.2.0",
-    "electron-stylus": "^0.1.1"
+    "electron-stylus": "^0.1.1",
+    "mattermost": "^3.4.0",
+    "request-promise": "^4.1.1"
   }
 }
