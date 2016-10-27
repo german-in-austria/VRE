@@ -7,6 +7,7 @@ var $ = require('jquery')
 var url = require('url')
 var shell = require('electron').shell
 
+
 var compileCSS = (path) => {
   var file = fs.readFileSync(__dirname+path, 'utf8')
   return new Promise((resolve, reject) => {
@@ -28,7 +29,7 @@ var app_modules = [
     name : 'Diskussion',
     selector : '.mattermost',
     css : '/css/mattermost.styl',
-    // debug : true
+    js : '/js-injection/mattermost.js'
   },
   {
     name : 'DIÖ-Cloud',
