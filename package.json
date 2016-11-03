@@ -1,6 +1,6 @@
 {
   "name": "dioe_app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A desktop client that contains the most important tools used in for research project DIÖ",
   "main": "main.js",
   "scripts": {
