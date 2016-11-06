@@ -7,11 +7,27 @@ body
 #owncloud
   display none !important
 
-#header
+#body-user #header
+  background transparent !important
+  position absolute !important
+  left auto !important
+  width 300px !important
+  z-index 100 !important
   //search function is part of the header, therefore we shouldn't hide it
   /*display none*/
-  background-color #55739A !important
- 
+
+.header-appname-container
+  display none !important
+
+#header #settings
+  display none
+
+#header .searchbox input[type="search"]
+  position absolute
+  top 0
+  right 10px
+  -webkit-filter invert()
+
 body#body-login
 	background #55739A !important
 
