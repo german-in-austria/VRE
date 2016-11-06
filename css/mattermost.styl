@@ -1,6 +1,10 @@
 primary-color = #0062A6
 @import 'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext'
 
+body.app__body
+  font-size 150% !important
+
+
 // TODO REMOVE
 .error-bar
   display none !important
@@ -26,6 +30,12 @@ primary-color = #0062A6
 .app__body .sidebar--left .nav li.active a
   color #333 !important
 
+.app__body .sidebar--left, .app__body .sidebar--left .sidebar__divider .sidebar__divider__text
+.app__body .modal .settings-modal .settings-table .settings-links
+.app__body .sidebar--menu
+  color #777
+  background-color white !important
+
 ::-webkit-scrollbar-thumb
     border-radius 6px
 
@@ -35,7 +45,7 @@ primary-color = #0062A6
 .app__body .sidebar--left .team__header .navbar-right .dropdown__icon
   fill #333 !important
 
-.app__body .sidebar--left .nav-pills__container li>a.unread-title
+body.app__body div.sidebar--left div.nav-pills__container li>a.unread-title
   color #333 !important
 
 .channel-header
