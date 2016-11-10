@@ -60,6 +60,9 @@ dioe = {
     el.classList.add('active')
     document.querySelector('webview.active').classList.remove('active')
     document.querySelector('#'+view_name).classList.add('active')
+  },
+  goBack : (el) => {
+	  console.log('ich will zurück...')
   }
 }
 
