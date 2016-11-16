@@ -5,6 +5,7 @@ const app = electron.app
 const shell = electron.shell
 // menu
 const Menu = electron.Menu
+const Tray = electron.Tray
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
@@ -59,10 +60,20 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+let tray = null
 app.on('ready', function(){
   var menu = defaultMenu(app, shell)
   createWindow()
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+  tray = new Tray('app-icon.ico')
+  const contextMenu = Menu.buildFromTemplate([
+    {label: 'Item1', type: 'radio'},
+    {label: 'Item2', type: 'radio'},
+    {label: 'Item3', type: 'radio', checked: true},
+    {label: 'Item4', type: 'radio'}
+  ])
+  tray.setToolTip('DiÖ Desktop Client')
+  tray.setContextMenu(contextMenu)
 })
 
 //added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
