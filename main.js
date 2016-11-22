@@ -16,9 +16,34 @@ const client = require('electron-connect').client;
 //   showDevTools: true,
 //   enabled : true
 // })
+
+const globalShortcut = electron.globalShortcut
 app.commandLine.appendSwitch('ignore-certificate-errors', true);
 app.commandLine.appendSwitch('allow-insecure-localhost');
 app.commandLine.appendSwitch('unsafely-treat-insecure-origin-as-secure');
+
+var AutoLaunch = require('auto-launch');
+var dioeAutoLauncher = new AutoLaunch({
+	name: 'DiÖ Desktop Client',
+	path: '/Applications/dioe.app',
+});
+
+var autostart = false;
+
+
+//dioeAutoLauncher.enable();
+
+dioeAutoLauncher.isEnabled()
+.then(function(isEnabled){
+    if(isEnabled){
+		return;
+    }
+    dioeAutoLauncher.enable();
+	autostart = true;
+})
+.catch(function(err){
+    // handle error 
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -61,19 +86,67 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 let tray = null
-app.on('ready', function(){
+app.on('ready', function() {
   var menu = defaultMenu(app, shell)
   createWindow()
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+  
+  if(dioeAutoLauncher.isEnabled()) { autostart = true; }
+  
+  // Register a 'CommandOrControl+X' shortcut listener.
+  const ret = globalShortcut.register('CommandOrControl+X', () => {
+    app.quit()
+  })
+
+  if (!ret) {
+    console.log('registration failed')
+  }
+  
+  //add a tray
   tray = new Tray('app-icon.ico')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    {
+		label: 'App Schließen', 
+		accelerator: 'CommandOrControl+X', 
+		click: function() {
+			app.quit();
+		}
+	},
+    {
+		label: 'Autostart Off', 
+		type: 'radio', 
+		checked: !autostart,
+		click: function() {
+			if(dioeAutoLauncher.isEnabled()) {
+				dioeAutoLauncher.enable();
+			}
+		}
+	},
+    {
+		label: 'Autostart On', 
+		type: 'radio',
+		checked: autostart,
+		click: function() {
+			if(dioeAutoLauncher.isEnabled()) {
+				dioeAutoLauncher.disable();
+				autostart = false;
+			}
+		}
+	}
   ])
   tray.setToolTip('DiÖ Desktop Client')
   tray.setContextMenu(contextMenu)
+  
+  tray.on('click', () => {
+	//opens a new instance if the app was minimized to the tray
+	if(mainWindow==null) {
+		createWindow()
+	}
+  })
+  
+  if(dioeAutoLauncher.isEnabled()) {
+	  autostart = !autostart;
+  }
 })
 
 //added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
@@ -84,7 +157,7 @@ app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
-    app.quit()
+    //app.quit()
   }
 })
 

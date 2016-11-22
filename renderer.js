@@ -69,7 +69,6 @@ dioe = {
     document.querySelector('#'+view_name).classList.add('active')
   },
   goBack : (el) => {
-	  console.log('ich will zurück...')
 	  if(curr_wv == "redmine" && document.querySelector('webview.active').canGoBack()) {
 		console.log("redmine back")
 		document.querySelector('webview.active').goBack()
