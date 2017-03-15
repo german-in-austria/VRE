@@ -8,7 +8,7 @@ var url = require('url')
 var shell = require('electron').shell
 
 
-var compileCSS = (path) => {
+var compileCSS = (path) => {
   var file = fs.readFileSync(__dirname+path, 'utf8')
   return new Promise((resolve, reject) => {
     stylus.render(file, {filename : path}, (err, css) => {
@@ -29,7 +29,8 @@ var app_modules = [
     name : 'Diskussion',
     selector : '.mattermost',
     css : '/css/mattermost.styl',
-    js : '/js-injection/mattermost.js'
+    js : '/js-injection/mattermost.js',
+    // debug : true
   },
   {
     name : 'DIÖ-Cloud',
@@ -52,7 +53,7 @@ var app_modules = [
   }
 ]
 
-dioe = {
+window.dioe = {
   openView : (el) => {
     var view_name = el.href.split('#')[1]
     localStorage.setItem('active_page', view_name)
@@ -62,6 +63,15 @@ dioe = {
     document.querySelector('#'+view_name).classList.add('active')
   }
 }
+
+$(document).on('keydown', (e) => {
+  if (e.originalEvent.metaKey === true && !isNaN(Number(e.key))) {
+    console.log('cmd + '+e.key)
+    var index = Number(e.key) - 1
+    var el = $('.sidebar a')[index]
+    window.dioe.openView(el)
+  }
+})
 
 app_modules.map(app_module => {
   var el = document.querySelector(app_module.selector)
