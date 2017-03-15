@@ -32,6 +32,7 @@ function createWindow () {
     minHeight : 400,
     acceptFirstMouse : true,
     // titleBarStyle : 'hidden-inset',
+    // vibrancy : 'light',
     minimumFontSize : 6,
 	  "web-preferences": {
 		  defaultFontFamily: "Lato",
