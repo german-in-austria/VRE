@@ -107,7 +107,7 @@ function handleSquirrelEvent() {
 dioeAutoLauncher.isEnabled()
 .then(function(isEnabled){
     if(isEnabled){
-		return;
+		  return;
     }
     dioeAutoLauncher.enable();
 	autostart = true;
@@ -128,8 +128,8 @@ function createWindow () {
     minWidth : 600,
     minHeight : 400,
     acceptFirstMouse : true,
-    // titleBarStyle : 'hidden-inset',
-    // vibrancy : 'light',
+    titleBarStyle : 'hidden-inset',
+    // vibrancy : 'dark',
     minimumFontSize : 6,
 	  "web-preferences": {
 		  defaultFontFamily: "Lato",
@@ -167,7 +167,9 @@ app.on('ready', function() {
 
   // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    app.quit()
+    if (process.platform !== 'darwin') {
+      app.quit()
+    }
   })
 
   if (!ret) {
