@@ -6,6 +6,7 @@ var fs = require('fs')
 var $ = require('jquery')
 var url = require('url')
 var shell = require('electron').shell
+var curr_wv = "mattermost"
 
 
 var compileCSS = (path) => {
@@ -56,11 +57,23 @@ var app_modules = [
 window.dioe = {
   openView : (el) => {
     var view_name = el.href.split('#')[1]
+	if(view_name == "redmine") {
+		document.querySelector('.backbutton').classList.remove('hidden')
+	} else {
+		document.querySelector('.backbutton').classList.add('hidden')
+	}
+	curr_wv = view_name
     localStorage.setItem('active_page', view_name)
     document.querySelector('.sidebar a.active').classList.remove('active')
     el.classList.add('active')
     document.querySelector('webview.active').classList.remove('active')
     document.querySelector('#'+view_name).classList.add('active')
+  },
+  goBack : (el) => {
+	  if(curr_wv == "redmine" && document.querySelector('webview.active').canGoBack()) {
+		console.log("redmine back")
+		document.querySelector('webview.active').goBack()
+	  }
   }
 }
 

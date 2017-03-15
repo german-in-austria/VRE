@@ -39,10 +39,15 @@
               <img src="img/calendar.svg" />
             </a>
           </li>
+		  <li>
+            <a onclick="dioe.goBack(this)" href="#back" class="hidden backbutton">
+              <img src="img/back.svg" />
+            </a>
+          </li>
         </ul>
       </div>
       <webview class="mattermost active" id="mattermost" src="http://mm.dioe.at"></webview>
-      <webview class="redmine" id="redmine" src="http://131.130.186.139/redmine/my/page"></webview>
+      <webview class="redmine" id="redmine" src="http://dioe.at/redmine/my/page"></webview>
 	    <webview class="cloud" id="cloud" src="https://dioecloud.trans.univie.ac.at"></webview>
 	    <webview class="calendar" id="calendar" src="https://calendar.google.com/calendar/embed?src=01jij9p9cq9co2vkg4268o70e8%40group.calendar.google.com&ctz=Europe/Vienna"></webview>
     </div>
@@ -51,7 +56,5 @@
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
-	//needed to run the app under windows
-	//var load = require('isexe').load(pattern, config);
   </script>
 </html>
