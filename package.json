@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-mac": "electron-packager . dioe_app --platform darwin --arch x64 --icon=app-icon.icns --out ../build-mac --overwrite=true",
+    "build-mac": "rm -rfv ../build-mac && mkdir ../build-mac && electron-packager . dioe_app --platform darwin --arch x64 --icon=app-icon.icns --out ../build-mac --overwrite=true",
     "build": "electron-packager . dioe_app --platform win32 --arch x64 --icon=app-icon.ico --out ../build --asar=true --overwrite=true",
 	"setup": "electron-installer-windows --src ../build/dioe_app-win32-x64/ --dest ../installers",
 	"build-win": "electron-packager . dioe_app --platform=win32 --arch=ia32 --electronVersion=1.4.13 --app-version=0.0.3 --build-version=1.0.0 --icon=app-icon.ico --prune=false --overwrite=true --asar=true && electron ./package.js"
