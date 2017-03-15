@@ -4,17 +4,28 @@
 body
   padding 0
   margin 0
+  background transparent
 
 .main
   display flex
   flex-direction row
   -webkit-app-region no-drag
 
+.main > .titlebar
+  position fixed
+  top 0
+  right 0
+  left 0
+  height 30px
+  text-align center
+  line-height 30px
+  -webkit-app-region drag
+
 .sidebar
-  width 100px
+  width 80px
+  background #eaeaea
   background #55739a
-  // background transparent
-  padding 2em 0
+  padding 3em 0
   -webkit-app-region drag
   li
     position relative
@@ -25,16 +36,16 @@ body
     padding 1em
     color #555
     -webkit-app-region no-drag
-    opacity .7
-    -webkit-filter invert()
-    filter invert
+    opacity .5
+    img
+      -webkit-filter invert()
     &:hover
     &:focus
       text-decoration none
     &.active
-      filter none
-      -webkit-filter none
       opacity 1
+      img
+        -webkit-filter none
     &.active:after
       content " "
       position absolute
@@ -63,8 +74,9 @@ webview.active
   flex-grow 5
   opacity 1
   pointer-events auto
-  width 80vw
-  height 100vh
+  width calc(100vw - 80px)
+  margin-top 30px
+  height calc(100vh - 30px)
 
 .hidden
   opacity 0
