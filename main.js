@@ -167,7 +167,9 @@ app.on('ready', function() {
 
   // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    app.quit()
+    if (process.platform !== 'darwin') {
+      app.quit()
+    }
   })
 
   if (!ret) {
