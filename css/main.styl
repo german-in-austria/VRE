@@ -13,6 +13,7 @@ body
 .sidebar
   width 100px
   background #55739a
+  // background transparent
   padding 2em 0
   -webkit-app-region drag
   li
@@ -26,13 +27,14 @@ body
     -webkit-app-region no-drag
     opacity .7
     -webkit-filter invert()
+    filter invert
     &:hover
     &:focus
       text-decoration none
     &.active
+      filter none
       -webkit-filter none
       opacity 1
-      background #55739a
     &.active:after
       content " "
       position absolute

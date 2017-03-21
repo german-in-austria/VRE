@@ -4,10 +4,25 @@ primary-color = #0062A6
 body.app__body
   font-size 150% !important
 
+.multi-teams .team-sidebar .team-wrapper .team-container.active::before
+.multi-teams .team-sidebar .team-wrapper
+.app__body .multi-teams .team-sidebar
+  background white !important
 
+// active team
+.multi-teams .team-sidebar .team-wrapper .team-container.active .team-btn
+  background #256 !important
+
+.multi-teams .team-sidebar .team-wrapper .team-container .team-btn
+  border-radius 7px !important
+  border 0 !important
 // TODO REMOVE
 .error-bar
   display none !important
+
+.sidebar--left .team__header:hover .sidebar-header-dropdown .sidebar-header-dropdown__toggle#sidebar-header-dropdown
+  filter invert()
+  opacity .5
 
 .app__body .post.current--user .post__body
 .app__body .post.post--comment.other--root.current--user .post-comment
@@ -128,6 +143,7 @@ body.app__body div.sidebar--left div.nav-pills__container li>a.unread-title
   color #333 !important
   border: 0 !important
   border-bottom: 1px solid #ccc !important
+
 .app__body .modal .modal-header button.close
   color #555
   font-weight 300

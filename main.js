@@ -33,10 +33,12 @@ var autostart = false;
 // this should be placed at top of main.js to handle setup events quickly
 if (handleSquirrelEvent()) {
   // squirrel event handled and app will exit in 1000ms, so don't do anything else
-  return;
+  return
 }
 
-var electronInstaller = require('electron-winstaller');
+if (process.platform !== 'darwin') {
+  var electronInstaller = require('electron-winstaller')
+}
 
 function handleSquirrelEvent() {
   if (process.argv.length === 1) {
@@ -111,7 +113,7 @@ dioeAutoLauncher.isEnabled()
 	autostart = true;
 })
 .catch(function(err){
-    // handle error 
+    // handle error
 });
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -127,6 +129,7 @@ function createWindow () {
     minHeight : 400,
     acceptFirstMouse : true,
     // titleBarStyle : 'hidden-inset',
+    // vibrancy : 'light',
     minimumFontSize : 6,
 	  "web-preferences": {
 		  defaultFontFamily: "Lato",
@@ -159,9 +162,9 @@ app.on('ready', function() {
   var menu = defaultMenu(app, shell)
   createWindow()
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
-  
+
   if(dioeAutoLauncher.isEnabled()) { autostart = true; }
-  
+
   // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     app.quit()
@@ -170,22 +173,22 @@ app.on('ready', function() {
   if (!ret) {
     console.log('registration failed')
   }
-  
+
   //let image = nativeImage.createFromPath(path.join(__dirname, 'img', 'icon.ico'));
-  
+
   //add a tray
   /*tray = new Tray("app-icon.ico")
   const contextMenu = Menu.buildFromTemplate([
     {
-		label: 'App Schließen', 
-		accelerator: 'CommandOrControl+X', 
+		label: 'App Schließen',
+		accelerator: 'CommandOrControl+X',
 		click: function() {
 			app.quit();
 		}
 	},
     {
-		label: 'Autostart Off', 
-		type: 'radio', 
+		label: 'Autostart Off',
+		type: 'radio',
 		checked: !autostart,
 		click: function() {
 			if(dioeAutoLauncher.isEnabled()) {
@@ -194,7 +197,7 @@ app.on('ready', function() {
 		}
 	},
     {
-		label: 'Autostart On', 
+		label: 'Autostart On',
 		type: 'radio',
 		checked: autostart,
 		click: function() {
@@ -207,14 +210,14 @@ app.on('ready', function() {
   ])
   tray.setToolTip('DiÖ Desktop Client')
   tray.setContextMenu(contextMenu)
-  
+
   tray.on('click', () => {
 	//opens a new instance if the app was minimized to the tray
 	if(mainWindow==null) {
 		createWindow()
 	}
   })
-  
+
   /*if(dioeAutoLauncher.isEnabled()) {
 	  autostart = !autostart;
   }*/

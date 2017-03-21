@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-mac": "electron-packager . dioe_app --platform darwin --arch x64 --icon=app-icon.icns --out ../build-mac --overwrite=true",
+    "build-mac": "rm -rfv ../build-mac && mkdir ../build-mac && electron-packager . dioe_app --platform darwin --arch x64 --icon=app-icon.icns --out ../build-mac --overwrite=true",
     "build": "electron-packager . dioe_app --platform win32 --arch x64 --icon=app-icon.ico --out ../build --asar=true --overwrite=true",
 	"setup": "electron-installer-windows --src ../build/dioe_app-win32-x64/ --dest ../installers",
 	"build-win": "electron-packager . dioe_app --platform=win32 --arch=ia32 --electronVersion=1.4.13 --app-version=0.0.3 --build-version=1.0.0 --icon=app-icon.ico --prune=false --overwrite=true --asar=true && electron ./package.js"
@@ -13,6 +13,11 @@
   "devDependencies": {
     "electron-debug": "^1.0.1",
     "electron-prebuilt": "^1.2.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
     "electron-winstaller": "^2.5.2",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0"
