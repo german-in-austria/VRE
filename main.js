@@ -22,14 +22,6 @@ app.commandLine.appendSwitch('ignore-certificate-errors', true);
 app.commandLine.appendSwitch('allow-insecure-localhost');
 app.commandLine.appendSwitch('unsafely-treat-insecure-origin-as-secure');
 
-var AutoLaunch = require('auto-launch');
-var dioeAutoLauncher = new AutoLaunch({
-	name: 'DiÖ Desktop Client',
-	path: '/Applications/dioe.app',
-});
-
-var autostart = false;
-
 // this should be placed at top of main.js to handle setup events quickly
 if (handleSquirrelEvent()) {
   // squirrel event handled and app will exit in 1000ms, so don't do anything else
@@ -102,20 +94,6 @@ function handleSquirrelEvent() {
   }
 };
 
-//dioeAutoLauncher.enable();
-
-dioeAutoLauncher.isEnabled()
-.then(function(isEnabled){
-    if(isEnabled){
-		return;
-    }
-    dioeAutoLauncher.enable();
-	autostart = true;
-})
-.catch(function(err){
-    // handle error
-});
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -157,70 +135,20 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-let tray = null
+
 app.on('ready', function() {
   var menu = defaultMenu(app, shell)
   createWindow()
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
 
-  if(dioeAutoLauncher.isEnabled()) { autostart = true; }
-
   // Register a 'CommandOrControl+X' shortcut listener.
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
+  const ret = globalShortcut.register('CommandOrControl+Shift+X', () => {
     app.quit()
   })
 
   if (!ret) {
     console.log('registration failed')
   }
-
-  //let image = nativeImage.createFromPath(path.join(__dirname, 'img', 'icon.ico'));
-
-  //add a tray
-  /*tray = new Tray("app-icon.ico")
-  const contextMenu = Menu.buildFromTemplate([
-    {
-		label: 'App Schließen',
-		accelerator: 'CommandOrControl+X',
-		click: function() {
-			app.quit();
-		}
-	},
-    {
-		label: 'Autostart Off',
-		type: 'radio',
-		checked: !autostart,
-		click: function() {
-			if(dioeAutoLauncher.isEnabled()) {
-				dioeAutoLauncher.enable();
-			}
-		}
-	},
-    {
-		label: 'Autostart On',
-		type: 'radio',
-		checked: autostart,
-		click: function() {
-			if(dioeAutoLauncher.isEnabled()) {
-				dioeAutoLauncher.disable();
-				autostart = false;
-			}
-		}
-	}
-  ])
-  tray.setToolTip('DiÖ Desktop Client')
-  tray.setContextMenu(contextMenu)
-
-  tray.on('click', () => {
-	//opens a new instance if the app was minimized to the tray
-	if(mainWindow==null) {
-		createWindow()
-	}
-  })
-
-  /*if(dioeAutoLauncher.isEnabled()) {
-	  autostart = !autostart;
-  }*/
 })
 
 //added this line to load our dioecloud (otherwise it's not possible with self signed certificates)
@@ -232,7 +160,6 @@ app.on('window-all-closed', function () {
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
-	//app will minimize to tray and can be closed via tray option or the command+x shortcut
   }
 })
 
