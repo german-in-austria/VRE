@@ -28,10 +28,6 @@ if (handleSquirrelEvent()) {
   return
 }
 
-if (process.platform !== 'darwin') {
-  var electronInstaller = require('electron-winstaller')
-}
-
 function handleSquirrelEvent() {
   if (process.argv.length === 1) {
     return false;
@@ -144,6 +140,10 @@ app.on('ready', function() {
   // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+Shift+X', () => {
     app.quit()
+  })
+  
+  const reti = globalShortcut.register('CommandOrControl+Shift+1', () => {
+    mainWindow.loadURL(`https://dioe.at/redmine`)
   })
 
   if (!ret) {

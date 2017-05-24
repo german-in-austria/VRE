@@ -51,6 +51,12 @@ var app_modules = [
     selector : '.calendar',
     css : '/css/calendar.styl',
     // debug : true
+  },
+  {
+    name : 'Wiki',
+    selector : '.wiki',
+    css : '/css/wiki.styl',
+    // debug : true
   }
 ]
 
@@ -78,12 +84,47 @@ window.dioe = {
 }
 
 $(document).on('keydown', (e) => {
-  if (e.originalEvent.metaKey === true && !isNaN(Number(e.key))) {
-    console.log('cmd + '+e.key)
-    var index = Number(e.key) - 1
-    var el = $('.sidebar a')[index]
-    window.dioe.openView(el)
-  }
+	if(e.originalEvent.ctrlKey === true) {
+		if(e.keyCode == 9) { 
+			console.log('ctrl + tab') 
+			var indexwin = 0
+			
+			switch(curr_wv) {
+			case 'mattermost':
+				indexwin = 0
+			break;
+			case 'cloud':
+				indexwin = 1
+			break;
+			case 'redmine':
+				indexwin = 2
+			break;
+			case 'wiki':
+				indexwin = 3
+			break;
+			case 'calendar':
+				indexwin = 4
+			break;
+			default:
+				indexwin = 0
+			}
+			if(indexwin < 4) { 
+				var el = $('.sidebar a')[indexwin+1]
+				window.dioe.openView(el)
+			} else {
+				var el = $('.sidebar a')[0]
+				window.dioe.openView(el)
+			}
+		} else { 
+			console.log('ctrl + otherkey') 
+		}
+	}
+	if (e.originalEvent.metaKey === true && !isNaN(Number(e.key))) {
+		console.log('cmd + '+e.key)
+		var index = Number(e.key) - 1
+		var el = $('.sidebar a')[index]
+		window.dioe.openView(el)
+	}
 })
 
 app_modules.map(app_module => {
