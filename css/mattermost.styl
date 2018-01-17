@@ -2,7 +2,7 @@ primary-color = #0062A6
 @import 'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&subset=latin-ext'
 
 body.app__body
-  font-size 150% !important
+  font-size 130% !important
 
 .multi-teams .team-sidebar .team-wrapper .team-container.active::before
 .multi-teams .team-sidebar .team-wrapper
@@ -19,6 +19,9 @@ body.app__body
 // TODO REMOVE
 .error-bar
   display none !important
+
+.sidebar--left .sidebar-item .icon
+  fill rgba(0,0,0,.8) !important
 
 .sidebar--left .team__header:hover .sidebar-header-dropdown .sidebar-header-dropdown__toggle#sidebar-header-dropdown
   filter invert()
@@ -62,6 +65,15 @@ body.app__body
 
 body.app__body div.sidebar--left div.nav-pills__container li>a.unread-title
   color #333 !important
+
+.nav-pills__unread-indicator
+  background #f0f0f0 !important
+
+.sidebar__switcher
+  background #f0f0f0 !important
+  button
+    color #333 !important
+
 
 .channel-header
   border-bottom 0 !important
