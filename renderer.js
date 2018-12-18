@@ -40,7 +40,7 @@ var app_modules = [
     selector: '.cloud',
     css: '/css/owncloud.styl',
     js: '/js-injection/owncloud.js',
-    // debug : true
+    debug : true
   },
   {
     name: 'Aufgaben',
