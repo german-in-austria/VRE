@@ -9,7 +9,7 @@ body {
 }
 .sidebar {
   width: 100px;
-  background: rgb(29, 29, 29);
+  background: rgb(211, 215, 224);
   padding: 2em 0;
   -webkit-app-region: drag;
 }
@@ -24,15 +24,29 @@ body {
   color: #555;
   -webkit-app-region: no-drag;
   opacity: 0.2;
+  -webkit-filter: invert();
   transition: .2s;
 }
+
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background: rgb(29, 29, 29);
+  }
+  .sidebar a {
+    -webkit-filter: none !important;
+  }
+  .sidebar a.active {
+    opacity: 1;
+  }
+}
+
 .sidebar a:hover,
 .sidebar a:focus {
   text-decoration: none;
   opacity: .5;
 }
 .sidebar a.active {
-  opacity: 1
+  opacity: .7
 }
 .sidebar a.active:after {
   content: " ";
