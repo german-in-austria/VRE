@@ -28,8 +28,8 @@ var app_modules = [
   {
     name : 'Diskussion',
     selector : '.mattermost',
-    css : '/css/mattermost.styl',
-    js : '/js-injection/mattermost.js'
+    // css : '/css/mattermost.styl',
+    // js : '/js-injection/mattermost.js'
   },
   {
     name : 'DIÖ-Cloud',
