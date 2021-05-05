@@ -33,10 +33,12 @@ function createWindow () {
     acceptFirstMouse : true,
     // titleBarStyle : 'hidden-inset',
     minimumFontSize : 6,
-	  "web-preferences": {
+	  webPreferences: {
+      nodeIntegration: true,
+      webviewTag: true,
 		  defaultFontFamily: "Lato",
-		  defaultFontSitze: 14,
-		    //added to run dioecloud in a webview
+		  defaultFontSize: 14,
+      contextIsolation: false,
 		  allowDisplayInsecureContent: true
 	  }
   })
