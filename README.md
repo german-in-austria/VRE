@@ -1,3 +1,13 @@
+# VRE
+
+## Windows Build
+
+```bash
+npm install -g electron-installer-windows
+npm run build
+npm run setup
+```
+
 # electron-quick-start
 
 **Clone and run for a quick way to see an Electron in action.**
